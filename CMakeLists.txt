@@ -14,19 +14,6 @@ find_package(PkgConfig)
 pkg_check_modules(LIBRESOURCE_GLIB REQUIRED libresource-glib)
 include_directories(${LIBRESOURCE_GLIB_INCLUDE_DIRS})
 
-# Multiarch support
-if(NOT LIB_DEST)
-    if(CMAKE_LIBRARY_ARCHITECTURE)
-        set(LIB_DEST "lib/${CMAKE_LIBRARY_ARCHITECTURE}")
-    else()
-        if (${CMAKE_C_SIZEOF_DATA_PTR} EQUAL 8)
-            set(LIB_DEST "lib64")
-        else()
-            set(LIB_DEST "lib")
-        endif()
-    endif()
-endif()
-
 # pkg-config support
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/pkgconfig/audioresource.pc.in
     ${CMAKE_CURRENT_BINARY_DIR}/audioresource.pc
