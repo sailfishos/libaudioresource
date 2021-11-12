@@ -2,9 +2,8 @@ Name: libaudioresource
 Version: 1.0.4
 Release: 1
 Summary: Nemo Mobile Audio Resource API
-Group: Development/Libraries
-License: LGPL
-URL: http://github.com/nemomobile
+License: LGPLv2
+URL: https://github.com/sailfishos/libaudioresource
 Source: %{name}-%{version}.tar.bz2
 BuildRequires: pkgconfig(libresource-glib)
 BuildRequires: cmake
@@ -40,10 +39,11 @@ make
 %files
 %defattr(-,root,root,-)
 %{_libdir}/%{name}.so.*
+%license COPYING.LGPL
 
 %files devel
 %defattr(-,root,root,-)
-%doc README COPYING.LGPL
+%doc README
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/audioresource.pc
 %{_includedir}/audioresource/audioresource.h
