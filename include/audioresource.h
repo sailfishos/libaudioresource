@@ -98,7 +98,7 @@ void audioresource_release(audioresource_t *audio_resource);
 void audioresource_free(audioresource_t *audio_resource);
 
 #ifdef __cplusplus
-};
+}
 #endif
 
 #endif /* LIBAUDIORESOURCE_AUDIORESOURCE_H */
