@@ -1,5 +1,5 @@
 Name: libaudioresource
-Version: 1.0.4
+Version: 1.0.7
 Release: 1
 Summary: Nemo Mobile Audio Resource API
 License: LGPLv2
@@ -23,14 +23,19 @@ Requires: %{name} = %{version}
 This package contains the development library for %{name}.
 
 %prep
-%setup -q
+%autosetup
 
 %build
-%cmake -DLIB_DEST=%{_lib}
-make
+mkdir -p build
+pushd build
+%cmake .. -DLIB_DEST=%{_lib}
+%make_build
+popd
 
 %install
+pushd build
 %make_install
+popd
 
 %post -p /sbin/ldconfig
 
